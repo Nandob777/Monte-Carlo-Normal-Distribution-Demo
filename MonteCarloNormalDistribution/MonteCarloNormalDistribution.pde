@@ -1,14 +1,15 @@
-final int DIESIDES = 10; // inputs
+final int DIESIDES = 23; // inputs
 final int NUMDICE = 30; // inputs
 final int BASE = 20;
-final int CEILING = height;
+int ceiling;
 int[] counts; // every possible sum
 int maxCount = 0; // for scaling image
 
 
 void setup(){
   
-  size(300,300);
+  size(700,300);
+  ceiling = height - BASE;
   counts = new int[NUMDICE*DIESIDES];
   
   for(int i = 0; i < counts.length; i++){
@@ -43,7 +44,7 @@ void drawLines(){
   
   for(int i = 0; i < counts.length; i++){
     int offset = i*((int)step);
-    int lineHeight = (CEILING-BASE)*(counts[i])/counts[maxCount] + BASE;
+    int lineHeight = (ceiling-BASE)*(counts[i])/counts[maxCount] + BASE;
     ellipse(offset,height - lineHeight, 1, 10);
   }
   
